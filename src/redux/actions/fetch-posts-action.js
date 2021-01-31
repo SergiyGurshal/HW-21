@@ -9,7 +9,7 @@ const fetchPosts = (post) => {
 
 export default function getPostsFromServer() {
   return async (dispatch) => {
-    const response = await fetch('http://domer.tech:9999/tweets/')
+    const response = await fetch('https://cors.io/?http://domer.tech:9999/tweets/')
     const json = await response.json()
     dispatch(fetchPosts(json.data))
   }

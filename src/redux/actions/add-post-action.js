@@ -9,7 +9,7 @@ const addPost = (post) => {
 
 export default function getPostsFromServer(post) {
   return async (dispatch) => {
-    await fetch('http://domer.tech:9999/tweets/', {
+    await fetch('https://cors.io/?http://domer.tech:9999/tweets/', {
       method: 'POST',
       body: JSON.stringify({
         userId: post.userId,
@@ -20,7 +20,7 @@ export default function getPostsFromServer(post) {
         'Content-Type': 'application/json',
       },
     })
-    const response = await fetch('http://domer.tech:9999/tweets/')
+    const response = await fetch('https://cors.io/?http://domer.tech:9999/tweets/')
     const json = await response.json()
     dispatch(addPost(json.data))
   }
