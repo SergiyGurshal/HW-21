@@ -9,7 +9,7 @@ const addUser = (users) => {
 
 export default function addUserToServer(user) {
   return async (dispatch) => {
-    await fetch('https://cors.io/?http://domer.tech:9999/users/', {
+    await fetch('http://domer.tech:9999/users/', {
       method: 'POST',
       body: JSON.stringify({
         name: user.name,
@@ -20,7 +20,7 @@ export default function addUserToServer(user) {
         'Content-Type': 'application/json',
       },
     })
-    const response = await fetch('https://cors.io/?http://domer.tech:9999/users/')
+    const response = await fetch('http://domer.tech:9999/users/')
     const json = await response.json()
     dispatch(addUser(json.data))
   }
